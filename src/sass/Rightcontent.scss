@@ -1,10 +1,65 @@
     @import "./common.scss";
     .el-row {
+        border-radius: 12px;
+        box-shadow: 2px 2px 2px #555;
         margin-bottom: 20px;
+        overflow: hidden;
         &:last-child {
             margin-bottom: 0;
         }
         // box-shadow: 0 3px 3px #8698A2;
+        .info-all {
+            position: relative;
+            height: 76px;
+            @include _flex(row);
+            background-color: #fdfdfd;
+            border-radius: 12px;
+            div {
+                background: #fdfdfd;
+                @include _grow(1);
+                top: 50%;
+                @include transform(translateY(-50%));
+                position: relative;
+                border-left: 24px solid #fdfdfd;
+                h1 {
+                    position: absolute;
+                    left: 56px;
+                    top: 60%;
+                    @include transform(translateY(-50%));
+                    font-size: 16px;
+                }
+                p {
+                    position: absolute;
+                    left: 56px;
+                    top: 40%;
+                    @include transform(translateY(-50%));
+                }
+                img {
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                    width: 52px;
+                    height: 52px;
+                    display: block;
+                    position: absolute;
+                    border-radius: 50%;
+                }
+            }
+        }
+        .info-important {
+            height: 285px;
+        }
+        .info-pay {
+            height: 400px;
+        }
+        .info-player-alive {
+            height: 400px;
+        }
+        .info-online {
+            height: 400px;
+        }
+        .info-play-time {
+            height: 400px;
+        }
     }
     
     .el-col {
@@ -21,30 +76,6 @@
     
     .bg-purple-light {
         background: #e5e9f2;
-    }
-    
-    .info-all {
-        height: 76px;
-    }
-    
-    .info-important {
-        height: 285px;
-    }
-    
-    .info-pay {
-        height: 400px;
-    }
-    
-    .info-player-alive {
-        height: 400px;
-    }
-    
-    .info-online {
-        height: 400px;
-    }
-    
-    .info-play-time {
-        height: 400px;
     }
     
     .row-bg {

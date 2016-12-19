@@ -63,7 +63,7 @@
                 </el-menu>
             </div>
 <div class="rightcontent">
-    <transition enter-active-class="animated fadeIn" leave-active-class="animated rotateOut" mode="out-in">
+    <transition enter-active-class="animated quick fadeIn" leave-active-class="animated quick fadeOut" mode="out-in">
         <router-view></router-view>
     </transition>
 

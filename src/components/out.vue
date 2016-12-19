@@ -16,7 +16,7 @@
             // }
             setTimeout(function(){
             router.push("/")
-            },2000)
+            },1000)
 
 
         },

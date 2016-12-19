@@ -4,13 +4,18 @@
   "author": "yi.shyang@ele.me",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --host 192.168.1.152 --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
     "animate.css": "^3.5.2",
     "element-ui": "^1.0.0",
+    "highcharts": "^5.0.6",
+    "jquery": "^3.1.1",
+    "tween.js": "^16.3.5",
     "vue": "^2.1.4",
+    "vue-echarts": "^2.0.0",
+    "vue-highcharts": "0.0.9",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1"
   },

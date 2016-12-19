@@ -1,6 +1,8 @@
 import Vue from 'vue'
-import $ from './lib/jquery.min.js'
-import 'animate.css/animate.min.css';
+import tween from 'tween.js'
+//import ECharts from 'vue-echarts/components/ECharts.vue'
+import jquery from 'jquery'
+import 'animate.css/fade.css';
 import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -36,11 +38,17 @@ import PayWay from './components/payway.vue'
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(VueResource)
+    //Vue.use(ECharts)
 
 //手动VUEX
 Event = new Vue();
+//jquery
+window.$ = window.jquery = jquery;
+//表格
 
-//路由
+//过度
+Tween = tween
+    //路由
 const routes = [{
         path: '/home',
         components: {
@@ -50,64 +58,64 @@ const routes = [{
         },
         children: [{
             path: 'all',
-            component: Rightcontent//所有数据
+            component: Rightcontent //所有数据
         }, {
             path: '',
-            component: Welcom//欢迎界面
+            component: Welcom //欢迎界面
         }, {
             path: 'NewPlayer',
-            component: NewPlayer//新玩家
+            component: NewPlayer //新玩家
         }, {
             path: 'JumpPlayer',
-            component: JumpPlayer//活跃玩家
+            component: JumpPlayer //活跃玩家
         }, {
             path: 'AlivePlayer',
-            component: AlivePlayer//玩家留存
+            component: AlivePlayer //玩家留存
         }, {
             path: 'PayPoint',
-            component: PayPoint//付费转化
+            component: PayPoint //付费转化
         }, {
             path: 'RemovePlayer',
-            component: RemovePlayer//玩家流失
+            component: RemovePlayer //玩家流失
         }, {
             path: 'UserDevice',
-            component: UserDevice//设备相关
+            component: UserDevice //设备相关
         }, {
             path: 'OnlineExp',
-            component: OnlineExp//在线分析
+            component: OnlineExp //在线分析
         }, {
             path: 'RmbPlayer',
-            component: RmbPlayer//大R玩家
+            component: RmbPlayer //大R玩家
         }, {
             path: 'LevelInfo',
-            component: LevelInfo//等级详解
+            component: LevelInfo //等级详解
         }, {
             path: 'LevelPlace',
-            component: LevelPlace//等级分布
+            component: LevelPlace //等级分布
         }, {
             path: 'NewPlayerLevel',
-            component: NewPlayerLevel//新玩家进度
+            component: NewPlayerLevel //新玩家进度
         }, {
             path: 'VituralMoney',
-            component: VituralMoney//虚拟货币
+            component: VituralMoney //虚拟货币
         }, {
             path: 'ConsumerPreferences',
-            component: ConsumerPreferences//消费偏好
+            component: ConsumerPreferences //消费偏好
         }, {
             path: 'VituralPoint',
-            component: VituralPoint//消费点
+            component: VituralPoint //消费点
         }, {
             path: 'GetMoneyData',
-            component: GetMoneyData//收入数据
+            component: GetMoneyData //收入数据
         }, {
             path: 'PayData',
-            component: PayData//付费渗透
+            component: PayData //付费渗透
         }, {
             path: 'PlayerToMoney',
-            component: PlayerToMoney//新玩家价值
-        },{
+            component: PlayerToMoney //新玩家价值
+        }, {
             path: 'PayWay',
-            component: PayWay//付费习惯
+            component: PayWay //付费习惯
         }]
     },
     {
