@@ -14,8 +14,10 @@
             // if (!(window.localStorage.getItem("anfanToken"))) {
             //     clearInterval(timer);
             // }
-
+            setTimeout(function(){
             router.push("/")
+            },2000)
+
 
         },
         data() {

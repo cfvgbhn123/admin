@@ -1,70 +1,69 @@
 <template>
-  
     <div class="contentMain">
-          <div id="dataAll">
+        <div id="dataAll">
             <div class="data-left">
                  <router-link to="/home/all">数据总览</router-link>
             </div>
             <div class="data-right">
                 <el-breadcrumb separator="">
-  <el-breadcrumb-item :to="{ path: '/home' }">首页<i class='el-icon-caret-right'></i></el-breadcrumb-item>
+                    <el-breadcrumb-item :to="{ path: '/home' }">首页<i class='el-icon-caret-right'></i></el-breadcrumb-item>
   
-  <el-breadcrumb-item>活动管理<i class='el-icon-caret-right'></i></el-breadcrumb-item>
-  <!--此处渲染时间范围-->
-  <el-breadcrumb-item>{{timeValue}}<i class='el-icon-caret-right'></i></el-breadcrumb-item>
-  <el-breadcrumb-item>{{gameName}}</el-breadcrumb-item>
-</el-breadcrumb>
-             <div class="block">
+                    <el-breadcrumb-item>活动管理<i class='el-icon-caret-right'></i></el-breadcrumb-item>
+                        <!--此处渲染时间范围-->
+                    <el-breadcrumb-item>{{timeValue}}<i class='el-icon-caret-right'></i></el-breadcrumb-item>
+                    <el-breadcrumb-item>{{gameName}}</el-breadcrumb-item>
+                </el-breadcrumb>
+                <div class="block">
     <!--时间选择器-->
-    <el-date-picker
-      v-model="value4"
-      type="daterange"
-      :picker-options="pickerOptions2"
-      :editable=false
-      placeholder="选择时间范围"
-      align="right"
-      style="width:200px">
-    </el-date-picker>
-  </div>
+                    <el-date-picker
+                      v-model="value4"
+                      type="daterange"
+                      :picker-options="pickerOptions2"
+                      :editable=false
+                      placeholder="选择时间范围"
+                      align="right"
+                      style="width:200px">
+                    </el-date-picker>
+                </div>
             </div>
         </div>
         <div id="menuAll">
             <div class="leftmenu">
                 <el-menu default-active="2" class="el-menu-vertical-demo" v-bind:router="true" @open="handleOpen" @close="handleClose">
-<el-submenu index="player">
-    <template slot="title"><i class="el-icon-message"></i>游戏玩家</template>
-<el-menu-item index="/home/NewPlayer">新增玩家</el-menu-item>
-<el-menu-item index="/home/JumpPlayer">活跃玩家</el-menu-item>
-<el-menu-item index="/home/AlivePlayer">玩家留存</el-menu-item>
-<el-menu-item index="/home/PayPoint">付费转化</el-menu-item>
-<el-menu-item index="/home/RemovePlayer">玩家流失</el-menu-item>
-<el-menu-item index="/home/UserDevice">设备相关</el-menu-item>
-</el-submenu>
-<el-menu-item index="/home/OnlineExp"><i class="el-icon-menu"></i>在线分析</el-menu-item>
-<el-menu-item index="/home/RmbPlayer"><i class="el-icon-edit"></i>大R用户</el-menu-item>
-<el-submenu index="2">
-    <template slot="title"><i class="el-icon-view"></i>等级分析</template>
-    <el-menu-item index="/home/LevelInfo">等级详解</el-menu-item>
-    <el-menu-item index="/home/LevelPlace">等级分布</el-menu-item>
-    <el-menu-item index="/home/NewPlayerLevel">新玩家进度</el-menu-item>
-</el-submenu>
-<el-submenu index="3">
-    <template slot="title"><i class="el-icon-document"></i>虚拟消费</template>
-    <el-menu-item index="/home/VituralMoney">虚拟币</el-menu-item>
-    <el-menu-item index="/home/ConsumerPreferences">消费喜好</el-menu-item>
-    <el-menu-item index="/home/VituralPoint">消费点</el-menu-item>
-</el-submenu>
-<el-submenu index="4">
-    <template slot="title"><i class="el-icon-upload2"></i>收入分析</template>
-    <el-menu-item index="/home/GetMoneyData">收入数据</el-menu-item>
-    <el-menu-item index="/home/PayData">付费渗透</el-menu-item>
-    <el-menu-item index="/home/PlayerToMoney">新玩家价值</el-menu-item>
-    <el-menu-item index="/home/PayWay">付费习惯</el-menu-item>
-</el-submenu>
-</el-menu>
-</div>
+                    <el-submenu index="player">
+                        <template slot="title"><i class="el-icon-message"></i>游戏玩家</template>
+                        <el-menu-item index="/home/NewPlayer">新增玩家</el-menu-item>
+                        <el-menu-item index="/home/JumpPlayer">活跃玩家</el-menu-item>
+                        <el-menu-item index="/home/AlivePlayer">玩家留存</el-menu-item>
+                        <el-menu-item index="/home/PayPoint">付费转化</el-menu-item>
+                        <el-menu-item index="/home/RemovePlayer">玩家流失</el-menu-item>
+                        <el-menu-item index="/home/UserDevice">设备相关</el-menu-item>
+                    </el-submenu>
+                    <el-menu-item index="/home/OnlineExp"><i class="el-icon-menu"></i>在线分析</el-menu-item>
+                    <el-menu-item index="/home/RmbPlayer"><i class="el-icon-edit"></i>大R用户</el-menu-item>
+                    <el-submenu index="2">
+                        <template slot="title"><i class="el-icon-view"></i>等级分析</template>
+                        <el-menu-item index="/home/LevelInfo">等级详解</el-menu-item>
+                        <el-menu-item index="/home/LevelPlace">等级分布</el-menu-item>
+                        <el-menu-item index="/home/NewPlayerLevel">新玩家进度</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="3">
+                        <template slot="title"><i class="el-icon-document"></i>虚拟消费</template>
+                        <el-menu-item index="/home/VituralMoney">虚拟币</el-menu-item>
+                        <el-menu-item index="/home/ConsumerPreferences">消费喜好</el-menu-item>
+                        <el-menu-item index="/home/VituralPoint">消费点</el-menu-item>
+                    </el-submenu>
+                    <el-submenu index="4">
+                        <template slot="title"><i class="el-icon-upload2"></i>收入分析</template>
+                        <el-menu-item index="/home/GetMoneyData">收入数据</el-menu-item>
+                        <el-menu-item index="/home/PayData">付费渗透</el-menu-item>
+                        <el-menu-item index="/home/PlayerToMoney">新玩家价值</el-menu-item>
+                        <el-menu-item index="/home/PayWay">付费习惯</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </div>
 <div class="rightcontent">
-    <transition enter-active-class="animated bounceOutRight" leave-active-class="animated bounceOutRight">
+    <transition enter-active-class="animated fadeIn" leave-active-class="animated rotateOut" mode="out-in">
         <router-view></router-view>
     </transition>
 

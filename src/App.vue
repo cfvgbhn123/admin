@@ -1,9 +1,11 @@
 <template>
   <div id="app">
-    <transition  enter-active-class="animated bounceOutRight" leave-active-class="animated bounceOutRight">
+    <transition  enter-active-class="animated bounceInLeft" leave-active-class="animated bounceOutRight" mode="out-in">
         <router-view ></router-view>
-    </transition> 
-        <router-view name='homedex'  ></router-view>
+    </transition>
+
+        <router-view name='homedex'></router-view>
+
 </div>
 </template>
 
