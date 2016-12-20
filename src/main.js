@@ -1,15 +1,21 @@
 import Vue from 'vue'
-import tween from 'tween.js'
-import jquery from 'jquery'
 import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import tween from 'tween.js'
+// import jquery from 'jquery'
+//样式  异步加载
 System.import('animate.css/fade.css')
 System.import('element-ui/lib/theme-default/index.css')
-    // var App = System.import('./App.vue')
 
-// import 'element-ui/lib/theme-default/index.css'
+
+// 主模块
 import App from './App.vue'
+//表格模块
+// import highcharts from 'highcharts'
+// ECharts = require('vue-echarts/components/ECharts.vue')
+
+//路由模块
 import Header from './components/header.vue'
 import Home from './components/home.vue'
 import Rightcontent from './components/rightcontent.vue'
@@ -35,23 +41,37 @@ import PayData from './components/paydata.vue'
 import PlayerToMoney from './components/playertomoney.vue'
 import PayWay from './components/payway.vue'
 
+//打包函数
+//主要内容来自框架...没意思
 
+// const Header = resolve => {
+
+//     require.ensure(['./components/header.vue'], () => {
+//         resolve(require('./components/header.vue'))
+//     })
+// }
+// const Home = resolve => {
+
+//     require.ensure(['./components/Home.vue'], () => {
+//         resolve(require('./components/Home.vue'))
+//     })
+// }
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(VueResource)
-    //Vue.use(ECharts)
-    //require
-    // require('animate.css/fade.css')
-    // require('element-ui')
+
+//require
+// require('animate.css/fade.css')
+// require('element-ui')
 
 
 //手动VUEX
 Event = new Vue();
 //jquery
-window.$ = window.jquery = require('jquery');
+// window.$ = window.jquery = require('jquery');
 //表格
-
+// Highcharts = highcharts;
 //过度
 Tween = tween
     //路由

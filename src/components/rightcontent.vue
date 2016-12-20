@@ -45,40 +45,19 @@
 </el-row>
   <el-row :gutter="1" type="flex" justify="space-around">
   <el-col :span="24">
-      <div class='info-important bg-purple-dark'></div>
+      <div class='info-important bg-purple-dark'>
+          <AjaxDemo></AjaxDemo>
+      </div>
   </el-col>
  
-   
-  
-</el-row>
-  <el-row :gutter="1" type="flex" justify="space-around">
-  <el-col :span="24">
-      <div class='info-pay bg-purple-dark'></div>
-  </el-col>
- 
-   
-  
-</el-row>
-  <el-row :gutter="1" type="flex" justify="space-around">
-  <el-col :span="24">
-      <div class='info-player-alive bg-purple-dark'></div>
-  </el-col>
- 
-   
-  
-</el-row>
-  <el-row :gutter="1" type="flex" justify="space-around">
-  <el-col :span="24">
-      <div class='info-play-time bg-purple-dark'></div>
-  </el-col>
- 
-   
+
   
 </el-row>
 </div>
 </template>
 <script>
     import PayRate from "./chart/payrate.vue"
+    import AjaxDemo from './chart/ajaxdemo.vue'
     export default {
         data() {
             return {
@@ -97,7 +76,8 @@
 
         },
         components: {
-            PayRate
+            PayRate,
+            AjaxDemo
         },
         mounted() {
             setTimeout(this.Device = 20000, 2000);
