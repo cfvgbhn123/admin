@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import tween from 'tween.js'
-//import ECharts from 'vue-echarts/components/ECharts.vue'
 import jquery from 'jquery'
-import 'animate.css/fade.css';
 import ElementUI from 'element-ui'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import 'element-ui/lib/theme-default/index.css'
+System.import('animate.css/fade.css')
+System.import('element-ui/lib/theme-default/index.css')
+    // var App = System.import('./App.vue')
+
+// import 'element-ui/lib/theme-default/index.css'
 import App from './App.vue'
 import Header from './components/header.vue'
 import Home from './components/home.vue'
@@ -39,11 +41,15 @@ Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(VueResource)
     //Vue.use(ECharts)
+    //require
+    // require('animate.css/fade.css')
+    // require('element-ui')
+
 
 //手动VUEX
 Event = new Vue();
 //jquery
-window.$ = window.jquery = jquery;
+window.$ = window.jquery = require('jquery');
 //表格
 
 //过度

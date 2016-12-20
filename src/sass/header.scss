@@ -3,10 +3,11 @@
     position: relative;
     width: 100%;
     height: 50px;
-    background-color: $ba;
-    // box-shadow: 0 0 3px 0 #000;
+    background-color: white;
     .el-menu-demo {
         position: relative;
+        // height: 100%;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .3);
         #anfanLogo {
             width: 200px;
             height: 100%;
