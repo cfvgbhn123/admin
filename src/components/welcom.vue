@@ -1,8 +1,11 @@
 <template>
-
-<div id="welcom" style="width:100%;height:100%;background-color:darkcyan">
+<div>
+    <input type="text" name="" v-model="anfan"value="">
+    <div id="welcom" style="width:100%;height:100%;background-color:darkcyan">
     
 </div>
+</div>
+
 </template>
 
 <style scoped lang="sass">
@@ -13,10 +16,28 @@
     export default {
         data() {
             return {
+                anfan: 3000,
+                w37: 4563,
+                w4399: 6546,
+                w5399: 3453,
+                w9377: 3243,
+                qq: 555,
 
             }
         },
         mounted() {
+            var _this = this;
+            this.$watch('anfan', function() {
+                $('#welcom').highcharts().series[0].setData([
+                    ['安锋游戏', _this.anfan],
+                    ['37玩', _this.w37],
+                    ['4399', _this.w4399],
+                    ['琳琅天上', _this.qq],
+                    ['9377', _this.w9377],
+                    ['5399', _this.w5399]
+                ])
+            })
+
             $(function() {
                 $('#welcom').highcharts({
                     chart: {
@@ -45,18 +66,14 @@
                     },
                     series: [{
                         type: 'pie',
-                        name: 'Browser share',
+                        name: '市场占有率',
                         data: [
-                            ['安锋游戏', 45.0],
-                            ['37玩', 26.8], {
-                                name: 'Chrome',
-                                y: 12.8,
-                                sliced: true,
-                                selected: true
-                            },
-                            ['琳琅天上', 8.5],
-                            ['9377', 6.2],
-                            ['5399', 0.7]
+                            ['安锋游戏', _this.anfan],
+                            ['37玩', _this.w37],
+                            ['4399', _this.w4399],
+                            ['琳琅天上', _this.qq],
+                            ['9377', _this.w9377],
+                            ['5399', _this.w5399]
                         ]
                     }]
                 });
