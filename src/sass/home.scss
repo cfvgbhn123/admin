@@ -35,9 +35,14 @@
                 line-height: 50px;
                 @include box_sizing();
                 border-bottom: 1px solid #999;
-
+                .el-button {
+                    position: absolute;
+                    top: 50%;
+                    right: 250px;
+                    @include transform(translateY(-50%));
+                }
                 .el-breadcrumb {
-                    position: fixed;
+                    position: absolute;
                     width: 50%;
                     span {
                         line-height: 50px;
@@ -46,10 +51,10 @@
                         }
                     }
                 }
-                .el-input__inner::-webkit-input-placeholder{
+                .el-input__inner::-webkit-input-placeholder {
                     text-align: center;
                 }
-                .el-input__inner::-moz-placeholder{
+                .el-input__inner::-moz-placeholder {
                     text-align: center;
                 }
                 .el-date-editor {
@@ -64,7 +69,6 @@
                 }
             }
         }
-
         #menuAll {
             position: relative;
             height: 100vh;

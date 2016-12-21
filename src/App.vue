@@ -5,28 +5,36 @@
 
 
         <router-view name='homedex'></router-view>
+      
 
 </div>
 </template>
 
 <script>
+    import toast from './components/chart/toast.vue'
     export default {
         data() {
             return {
-                msg: 'VUE 2.0 控制台'
+                msg: true,
 
             }
         },
 
         methods: {
-
+            toast() {
+                console.log(this.msg)
+                this.msg = !(this.msg);
+            }
         },
         components: {
 
-
+            toast
         },
         mounted() {
-
+            var _this = this;
+            Event.$on('callTaost', function() {
+                alert(1);
+            })
         }
     }
 </script>

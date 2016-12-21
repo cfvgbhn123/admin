@@ -1,13 +1,13 @@
 <template>
 <div>
-    <p>{{Adata}}</p>
+    <p @click="change" >{{Bdata}}</p>
     <input type="number" v-model="Adata[0][1]"step="22">
     <input type="number" v-model="Adata[1][1]"step="22">
     <input type="number" v-model="Adata[2][1]"step="22">
     <input type="number" v-model="Adata[3][1]"step="22">
     <input type="number" v-model="Adata[4][1]"step="22">
     <input type="number" v-model="Adata[5][1]"step="22">
-    <div id="welcom" style="width:100%;height:100%;background-color:darkcyan">
+    <div id="welcom"  style="width:100%;height:100%;background-color:darkcyan">
     
 </div>
 </div>
@@ -30,20 +30,53 @@
                     ['9377', 999],
                     ['5399', 999]
                 ],
-                temp: null
-
+                Bdata: '测试',
             }
         },
         methods: {
             change() {
+                this.Adata[0][1] = this.Adata[0][1] + 1000;
+                var _this = this;
+                _this.Bdata = cloneObj(_this.Adata)
+                $('#welcom').highcharts().series[0].setData(_this.Bdata);
+
+                function cloneObj(obj) {
+                    var str, newobj = obj.constructor === Array ? [] : {};
+                    if (typeof obj !== 'object') {
+                        return;
+                    } else if (window.JSON) {
+                        str = JSON.stringify(obj), //系列化对象
+                            newobj = JSON.parse(str); //还原
+                    } else {
+                        for (var i in obj) {
+                            newobj[i] = typeof obj[i] === 'object' ?
+                                cloneObj(obj[i]) : obj[i];
+                        }
+                    }
+                    return newobj;
+                }
+
+                // if (!(data == backup)) {
+                //     _this.Bdata = cloneObj(_this.Adata);
+                //     $target.highcharts().series[0].setData(_this.Bdata);
+                //     _this.Bdata = _this.Adata;
+                //     unbind();
+                //     HotChange(backup, data, $target);
+                // } else if (data == backup) {
+                //     _this.Adata = cloneObj(_this.Bdata);
+                //     $target.highcharts().series[0].setData(_this.Adata);
+                //     _this.Adata = _this.Bdata;
+                //     unbind();
+                //     HotChange(backup, data, $target);
+                // }
 
 
+            },
 
-            }
         },
         mounted() {
             var _this = this;
-            binder('Adata');
+            HotChange('Adata', 'Bdata', $('#welcom'));
             var cloneObj = function(obj) {
                 var str, newobj = obj.constructor === Array ? [] : {};
                 if (typeof obj !== 'object') {
@@ -60,33 +93,27 @@
                 return newobj;
             };
 
-            function binder(target) {
-                var unbind = _this.$watch(target, function() {
-
-                    if (target == 'Adata') {
-                        _this.temp = cloneObj(_this.Adata);
-
-                        $('#welcom').highcharts().series[0].setData(_this.temp);
-
+            function HotChange(data, backup, $target) {
+                var unbind = _this.$watch(data, function() {
+                    if (!(data == backup)) {
+                        _this.Bdata = cloneObj(_this.Adata);
+                        $target.highcharts().series[0].setData(_this.Bdata);
+                        _this.Bdata = _this.Adata;
                         unbind();
-                        console.log(_this._watchers);
-                        binder('temp')
-
-                    } else if (target == 'temp') {
-                        _this.Adata = cloneObj(_this.temp);
-
-                        $('#welcom').highcharts().series[0].setData(_this.Adata);
-
+                        HotChange(backup, data, $target);
+                    } else if (data == backup) {
+                        _this.Adata = cloneObj(_this.Bdata);
+                        $target.highcharts().series[0].setData(_this.Adata);
+                        _this.Adata = _this.Bdata;
                         unbind();
-                        console.log(_this._watchers);
-                        binder('Adata')
+                        HotChange(backup, data, $target);
                     }
 
                 });
             }
 
 
-            console.log(this._watchers[1])
+            //   console.log(this._watchers[1])
 
 
             $(function() {
