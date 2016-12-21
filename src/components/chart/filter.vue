@@ -97,5 +97,5 @@
     }
 </script>
 <style lang="sass" scoped>
-    @import '../../sass/toast.scss'
+    @import '../../sass/filter.scss';
 </style>

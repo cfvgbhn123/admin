@@ -5,13 +5,13 @@
 
 
         <router-view name='homedex'></router-view>
-      
+     
 
 </div>
 </template>
 
 <script>
-    import toast from './components/chart/toast.vue'
+    import toast from './components/chart/filter.vue'
     export default {
         data() {
             return {
