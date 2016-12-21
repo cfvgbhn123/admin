@@ -26,7 +26,7 @@
                     </el-date-picker>
                 </div>
                 <!--筛选条件-->
-                <el-button type="primary" @click="callToast">筛选</el-button>
+                <el-button type="primary" @click="callfilter">筛选</el-button>
             </div>
         </div>
         <div id="menuAll">
@@ -133,7 +133,7 @@
             }
         },
         methods: {
-            callToast() {
+            callfilter() {
                 Event.$emit('callTaost')
             },
             handleNodeClick(data) {

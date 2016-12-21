@@ -1,10 +1,11 @@
 <template>
-            <div id="toast-box" >
-                <div id="toast-title">
+    
+            <div id="filter-box" >
+                <div id="filter-title">
                    <span>筛选</span>
-                   <i class="el-icon-close" @click='closeToast'></i>
+                   <i class="el-icon-close" @click='closefilter'></i>
                 </div>
-                <div id="toast-block">
+                <div id="filter-block">
                         <el-button :plain="true" type="success">版本</el-button>
                         <el-button :plain="true" type="warning">区服</el-button>
                         <el-input
@@ -14,11 +15,11 @@
                         >
                         </el-input>
                 </div>
-                <div id="toast-check">
+                <div id="filter-check">
                     <el-button type="primary" size="mini">全选</el-button>
                     <el-button type="primary" size="mini">反选</el-button>
                 </div>
-                <div id="toast-table">
+                <div id="filter-table">
                       <el-table
                         :data="tableData3"
                         border
@@ -46,7 +47,7 @@
                         </el-table-column>
                     </el-table>
                 </div>
-                <div id="toast-footer">
+                <div id="filter-footer">
                     <el-button type="primary" size="small">确定</el-button>
                     <el-button type="primary" size="small">取消</el-button>
                 </div>
@@ -56,8 +57,8 @@
 <script>
     export default {
         methods: {
-            closeToast() {
-                Event.$emit('closeToast')
+            closefilter() {
+                Event.$emit('closefilter')
             }
         },
         data() {
