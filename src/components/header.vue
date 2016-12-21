@@ -56,7 +56,6 @@
                     // -> "hi"
             },
             rush() {
-                console.log($('body'));
                 this.$confirm("确定退出登录吗,并跳转到登录前页面?", "提示", {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -70,6 +69,13 @@
                         message: "已取消操作"
                     })
                 })
+            }
+        },
+        beforeCreate() {
+            if (!(window.localStorage.getItem("anfanToken"))) {
+                window.location.href = "/"
+            } else {
+
             }
         }
     }

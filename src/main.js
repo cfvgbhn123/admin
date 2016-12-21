@@ -173,19 +173,5 @@ new Vue({
     router,
     el: '#app',
     render: h => h(App),
-    mounted() {
-        console.log(11111)
-        this.$on('check', function() {
-            checkLogin()
-        })
-    }
+    mounted() {}
 })
-
-function checkLogin() {
-    if (window.localStorage.getItem("anfanToken")) {
-        router.push("/home")
-    } else {
-        router.push("/")
-    }
-}
-setTimeout(checkLogin(), 0);

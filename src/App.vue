@@ -10,15 +10,10 @@
 </template>
 
 <script>
-    import hello from './components/hello.vue'
-    import stable from './components/superTable.vue'
-    import kakaka from './components/menu.vue'
-
-
     export default {
         data() {
             return {
-                msg: 'VUE 2.0 测试项目'
+                msg: 'VUE 2.0 控制台'
 
             }
         },
@@ -27,9 +22,7 @@
 
         },
         components: {
-            hello,
-            stable,
-            kakaka
+
 
         },
         mounted() {

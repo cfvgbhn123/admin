@@ -1,6 +1,12 @@
 <template>
 <div>
-    <input type="text" name="" v-model="anfan"value="">
+    <p>{{Adata}}</p>
+    <input type="number" v-model="Adata[0][1]"step="22">
+    <input type="number" v-model="Adata[1][1]"step="22">
+    <input type="number" v-model="Adata[2][1]"step="22">
+    <input type="number" v-model="Adata[3][1]"step="22">
+    <input type="number" v-model="Adata[4][1]"step="22">
+    <input type="number" v-model="Adata[5][1]"step="22">
     <div id="welcom" style="width:100%;height:100%;background-color:darkcyan">
     
 </div>
@@ -16,27 +22,72 @@
     export default {
         data() {
             return {
-                anfan: 3000,
-                w37: 4563,
-                w4399: 6546,
-                w5399: 3453,
-                w9377: 3243,
-                qq: 555,
+                Adata: [
+                    ['安锋游戏', 999],
+                    ['37玩', 999],
+                    ['4399', 888],
+                    ['琳琅天上', 999],
+                    ['9377', 999],
+                    ['5399', 999]
+                ],
+                temp: null
+
+            }
+        },
+        methods: {
+            change() {
+
+
 
             }
         },
         mounted() {
             var _this = this;
-            this.$watch('anfan', function() {
-                $('#welcom').highcharts().series[0].setData([
-                    ['安锋游戏', _this.anfan],
-                    ['37玩', _this.w37],
-                    ['4399', _this.w4399],
-                    ['琳琅天上', _this.qq],
-                    ['9377', _this.w9377],
-                    ['5399', _this.w5399]
-                ])
-            })
+            binder('Adata');
+            var cloneObj = function(obj) {
+                var str, newobj = obj.constructor === Array ? [] : {};
+                if (typeof obj !== 'object') {
+                    return;
+                } else if (window.JSON) {
+                    str = JSON.stringify(obj), //系列化对象
+                        newobj = JSON.parse(str); //还原
+                } else {
+                    for (var i in obj) {
+                        newobj[i] = typeof obj[i] === 'object' ?
+                            cloneObj(obj[i]) : obj[i];
+                    }
+                }
+                return newobj;
+            };
+
+            function binder(target) {
+                var unbind = _this.$watch(target, function() {
+
+                    if (target == 'Adata') {
+                        _this.temp = cloneObj(_this.Adata);
+
+                        $('#welcom').highcharts().series[0].setData(_this.temp);
+
+                        unbind();
+                        console.log(_this._watchers);
+                        binder('temp')
+
+                    } else if (target == 'temp') {
+                        _this.Adata = cloneObj(_this.temp);
+
+                        $('#welcom').highcharts().series[0].setData(_this.Adata);
+
+                        unbind();
+                        console.log(_this._watchers);
+                        binder('Adata')
+                    }
+
+                });
+            }
+
+
+            console.log(this._watchers[1])
+
 
             $(function() {
                 $('#welcom').highcharts({
@@ -67,14 +118,7 @@
                     series: [{
                         type: 'pie',
                         name: '市场占有率',
-                        data: [
-                            ['安锋游戏', _this.anfan],
-                            ['37玩', _this.w37],
-                            ['4399', _this.w4399],
-                            ['琳琅天上', _this.qq],
-                            ['9377', _this.w9377],
-                            ['5399', _this.w5399]
-                        ]
+                        data: _this.Adata
                     }]
                 });
             });
