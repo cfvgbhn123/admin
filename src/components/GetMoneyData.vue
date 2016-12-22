@@ -5,8 +5,7 @@
     </div>
 </template>
 <style lang="sass" scoped>
-   @import "../sass/GetMoneyData"
+    @import "../sass/GetMoneyData";
 </style>
 <script>
-    
 </script>

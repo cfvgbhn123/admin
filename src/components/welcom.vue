@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p @click="change" >{{Bdata}}</p>
+    <p  >{{Bdata}}</p>
     <input type="number" v-model="Adata[0][1]"step="22">
     <input type="number" v-model="Adata[1][1]"step="22">
     <input type="number" v-model="Adata[2][1]"step="22">
@@ -35,26 +35,27 @@
         },
         methods: {
             change() {
-                this.Adata[0][1] = this.Adata[0][1] + 1000;
-                var _this = this;
-                _this.Bdata = cloneObj(_this.Adata)
-                $('#welcom').highcharts().series[0].setData(_this.Bdata);
+                // this.Adata[0][1] = this.Adata[0][1] + 1000;
+                // console.log(this.Adata)
+                // var _this = this;
+                // _this.Bdata = cloneObj(_this.Adata)
+                // $('#welcom').highcharts().series[0].setData(_this.Bdata);
 
-                function cloneObj(obj) {
-                    var str, newobj = obj.constructor === Array ? [] : {};
-                    if (typeof obj !== 'object') {
-                        return;
-                    } else if (window.JSON) {
-                        str = JSON.stringify(obj), //系列化对象
-                            newobj = JSON.parse(str); //还原
-                    } else {
-                        for (var i in obj) {
-                            newobj[i] = typeof obj[i] === 'object' ?
-                                cloneObj(obj[i]) : obj[i];
-                        }
-                    }
-                    return newobj;
-                }
+                // function cloneObj(obj) {
+                //     var str, newobj = obj.constructor === Array ? [] : {};
+                //     if (typeof obj !== 'object') {
+                //         return;
+                //     } else if (window.JSON) {
+                //         str = JSON.stringify(obj), //系列化对象
+                //             newobj = JSON.parse(str); //还原
+                //     } else {
+                //         for (var i in obj) {
+                //             newobj[i] = typeof obj[i] === 'object' ?
+                //                 cloneObj(obj[i]) : obj[i];
+                //         }
+                //     }
+                //     return newobj;
+                // }
 
                 // if (!(data == backup)) {
                 //     _this.Bdata = cloneObj(_this.Adata);
@@ -74,6 +75,14 @@
             },
 
         },
+        // watch: {
+        //     Adata: {
+        //         handler: function(val, oldVal) {
+        //             console.log(val, oldval)
+        //         },
+        //         deep: true
+        //     }
+        // },
         mounted() {
             var _this = this;
             HotChange('Adata', 'Bdata', $('#welcom'));

@@ -35,6 +35,13 @@
                 line-height: 50px;
                 @include box_sizing();
                 border-bottom: 1px solid #999;
+                .tag {
+                    width: 50%;
+                    position: absolute;
+                    height: 100%;
+                    left: 30%;
+                    text-indent: 0;
+                }
                 .el-button {
                     position: absolute;
                     top: 50%;

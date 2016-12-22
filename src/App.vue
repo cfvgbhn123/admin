@@ -6,16 +6,17 @@
 
         <router-view name='homedex'></router-view>
      
-
+         <filterBox v-if=filterFlag></filterBox>
+    
 </div>
 </template>
 
 <script>
-    import toast from './components/chart/filter.vue'
+    import filterBox from './components/chart/filter.vue'
     export default {
         data() {
             return {
-                msg: true,
+                filterFlag: false,
 
             }
         },
@@ -28,12 +29,18 @@
         },
         components: {
 
-            toast
+            filterBox
         },
         mounted() {
             var _this = this;
-            Event.$on('callTaost', function() {
-                alert(1);
+            Event.$on('callfilter', function() {
+                _this.filterFlag = !(_this.filterFlag)
+            })
+            Event.$on('closefilter', function() {
+                _this.filterFlag = false
+            })
+            Event.$on('pushChoose', function() {
+                _this.filterFlag = false
             })
         }
     }

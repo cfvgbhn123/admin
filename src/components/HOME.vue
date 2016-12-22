@@ -7,12 +7,23 @@
             <div class="data-right">
                 <el-breadcrumb separator="">
                     <el-breadcrumb-item :to="{ path: '/home' }">首页<i class='el-icon-caret-right'></i></el-breadcrumb-item>
-  
-                    <el-breadcrumb-item>活动管理<i class='el-icon-caret-right'></i></el-breadcrumb-item>
-                        <!--此处渲染时间范围-->
+                          <!--此处渲染时间范围-->
                     <el-breadcrumb-item>{{timeValue}}<i class='el-icon-caret-right'></i></el-breadcrumb-item>
                     <el-breadcrumb-item>{{gameName}}</el-breadcrumb-item>
+                   
                 </el-breadcrumb>
+                 <div class="tag">
+                     <el-tag
+                        v-for="tag in tags"
+                        :closable="true"
+                        :type="tag.type"
+                        :key="tag"
+                        :close-transition="false"
+                        @close="tagClose(tag)"
+                        >
+                        {{tag.name}}
+                        </el-tag>
+                 </div>
                 <div class="block">
     <!--时间选择器-->
                     <el-date-picker
@@ -86,11 +97,25 @@
 
             // }
             var _this = this;
-
+            //监听选择了游戏
             Event.$on("chooseGame", function(game) {
                 _this.gameName = game;
 
             })
+
+            //监听选择的区服 渲染tag标签
+            Event.$on("pushChoose", function(data) {
+                _this.tags = [];
+
+                for (var i = 0; i < data.length; i++) {
+                    _this.tags.push({
+                        name: data[i]
+                    })
+
+                }
+
+            })
+
             this.$watch('value4', function() {
                 //执行其他代码
                 this.timeValue = (new Date(this.value4[0])).toLocaleDateString() + '-' + (new Date(this.value4[1])).toLocaleDateString()
@@ -129,12 +154,14 @@
                 //时间值
                 value4: '',
                 timeValue: '时间未选择',
-                gameName: "所有游戏"
+                gameName: "所有游戏",
+                //tag标签数据
+                tags: []
             }
         },
         methods: {
             callfilter() {
-                Event.$emit('callTaost')
+                Event.$emit('callfilter')
             },
             handleNodeClick(data) {
                 console.log(data);
@@ -144,6 +171,10 @@
             },
             handleClose() {
                 console.log(this)
+            },
+            tagClose(tag) {
+                this.tags.splice(this.tags.indexOf(tag), 1);
+
             },
             rush() {
                 this.$confirm("确定退出登录吗,并跳转到登录前页面?", "提示", {
