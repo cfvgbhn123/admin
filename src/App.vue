@@ -42,6 +42,7 @@
             Event.$on('pushChoose', function() {
                 _this.filterFlag = false
             })
+
         }
     }
 </script>

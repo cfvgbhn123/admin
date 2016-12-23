@@ -51,7 +51,40 @@
         },
         methods: {
             searchGame() {
-                console.log(this.$http)
+                // this.$http.get('http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=jsonp9')
+                //     .then((response) => {
+                //         console.log(response)
+                //             //this.$set('gridData', response.data)
+                //     })
+                //     .catch(function(response) {
+                //         console.log(response)
+                //     })
+                this.$http.get('http://192.168.1.152:8080/testdata.json').then(function(response) {
+                    console.log(response);
+
+                })
+
+                //原生XHR
+                // var xhr = new XMLHttpRequest();
+                // xhr.open('get', 'http://192.168.1.152:8080/testdata.json', true)
+                // xhr.onreadystatechange = function() {
+                //     if (xhr.readyState == 4) {
+                //         if (xhr.status >= 200 && xhr.status < 300) {
+                //             this.tableData = JSON.parse(xhr.responseText)
+                //         } else {
+                //             alert('error')
+                //         }
+                //     }
+                // }
+                // xhr.send();
+                //原生JSONP
+                // var url = "http://cache.video.iqiyi.com/jp/avlist/202861101/1/?callback=kankan";
+                // // 创建script标签，设置其属性
+                // var script = document.createElement('script');
+                // script.setAttribute('src', url);
+                // // 把script标签加入head，此时调用开始
+                // document.getElementsByTagName('head')[0].appendChild(script);
+
             },
             //关掉筛选界面
             closefilter() {
@@ -91,7 +124,7 @@
             return {
                 input2: '',
                 gameFlag: true,
-                tableData3: [{
+                tableData: [{
                     date: '2016-05-03',
                     name: '王小虎',
                     address: '上海市普陀区金沙江路 1518 弄'

@@ -30,6 +30,7 @@
 </template>
 <script>
     export default {
+
         data() {
             return {
                 userName: localStorage.getItem('anfanToken').split("?")[0],
