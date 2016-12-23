@@ -1,1 +1,43 @@
 @import "./common";
+#pay-point {
+    width: 100%;
+    height: 100%;
+    @include box_sizing();
+    position: relative;
+    overflow-x: hidden;
+    #pay-level {
+        position: relative;
+        width: 100%;
+        @include box_sizing();
+        border: 1px solid #bdbdbd;
+        background: #fff;
+        #pay-level-title {
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid #e4e4e4;
+            height: 45px;
+            line-height: 45px;
+            font-size: 14px;
+            overflow: hidden;
+            background: #f3f3f3;
+            background-image: -ms-linear-gradient(top, #f7f7f7, #eaeaea);
+            background-image: -moz-linear-gradient(top, #f7f7f7, #eaeaea);
+            background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f7f7f7), color-stop(1, #eaeaea));
+            h3 {
+                margin-left: 20px;
+                font-size: 14px;
+                font-weight: 900;
+            }
+        }
+        .el-tabs {
+            position: relative;
+            width: 100%;
+            height: auto;
+            @include transform(translateX(-1px));
+            aside {
+                width: 100%;
+                height: 360;
+            }
+        }
+    }
+}
