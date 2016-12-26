@@ -42,7 +42,7 @@
         </div>
         <div id="menuAll">
             <div class="leftmenu">
-                <el-menu default-active="2" class="el-menu-vertical-demo" v-bind:router="true" @open="handleOpen" @close="handleClose">
+                <!--<el-menu default-active="2" class="el-menu-vertical-demo" v-bind:router="true" @open="handleOpen" @close="handleClose">
                     <el-submenu index="player">
                         <template slot="title"><i class="el-icon-message"></i>游戏玩家</template>
 <el-menu-item index="/home/NewPlayer">新增玩家</el-menu-item>
@@ -73,7 +73,10 @@
     <el-menu-item index="/home/PlayerToMoney">新玩家价值</el-menu-item>
     <el-menu-item index="/home/PayWay">付费习惯</el-menu-item>
 </el-submenu>
-</el-menu>
+</el-menu>-->
+<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+
+
 </div>
 <div class="rightcontent">
     <transition enter-active-class="animated quick fadeIn" leave-active-class="animated quick fadeOut" mode="out-in">
@@ -124,6 +127,51 @@
         },
         data() {
             return {
+                data: [{
+                    label: '游戏玩家',
+                    children: [{
+                        label: '新增玩家'
+                    }, {
+                        label: '活跃玩家'
+                    }, {
+                        label: '玩家留存'
+                    }, {
+                        label: '付费转化'
+                    }, {
+                        label: '玩家流失'
+                    }]
+                }, {
+                    label: '在线分析'
+                }, {
+                    label: '大R用户'
+                }, {
+                    label: '等级分析',
+                    children: [{
+                        label: '等级详解'
+                    }, {
+                        label: '等级分布'
+                    }, {
+                        label: '新玩家进度'
+                    }]
+                }, {
+                    label: '虚拟消费',
+                    children: [{
+                        label: '虚拟币'
+                    }, {
+                        label: '消费点'
+                    }]
+                }, {
+                    label: '收入分析',
+                    children: [{
+                        label: '收入数据'
+                    }, {
+                        label: '新玩家价值'
+                    }, {
+                        label: '付费习惯'
+                    }, {
+                        label: '付费渗透'
+                    }]
+                }],
                 pickerOptions2: {
                     shortcuts: [{
                         text: '最近一周',
@@ -195,6 +243,62 @@
                         message: "已取消操作"
                     })
                 })
+            },
+            handleNodeClick(data) {
+                switch (data.label) {
+                    case '新增玩家':
+                        router.push("/home/NewPlayer");
+                        break;
+                    case '活跃玩家':
+                        router.push("/home/JumpPlayer");
+                        break;
+                    case '玩家留存':
+                        router.push("/home/AlivePlayer");
+                        break;
+                    case '付费转化':
+                        router.push("/home/PayPoint");
+                        break;
+                    case '玩家流失':
+                        router.push("/home/RemovePlayer");
+                        break;
+                    case '设备相关':
+                        router.push("/home/UserDevice");
+                        break;
+                    case '在线分析':
+                        router.push("/home/OnlineExp");
+                        break;
+                    case '大R用户':
+                        router.push("/home/RmbPlayer");
+                        break;
+                    case '等级详解':
+                        router.push("/home/LevelInfo");
+                        break;
+                    case '新玩家进度':
+                        router.push("/home/NewPlayerLevel");
+                        break;
+                    case '等级分布':
+                        router.push("/home/LevelPlace");
+                        break;
+                    case '虚拟币':
+                        router.push("/home/VituralMoney");
+                        break;
+                    case '消费点':
+                        router.push("/home/VituralPoint");
+                        break;
+                    case '收入数据':
+                        router.push("/home/GetMoneyData");
+                        break;
+                    case '新玩家价值':
+                        router.push("/home/PlayerToMoney");
+                        break;
+                    case '付费习惯':
+                        router.push("/home/PayWay");
+                        break;
+                    case '付费渗透':
+                        router.push("/home/PayData");
+                        break;
+
+                }
             }
 
         }
