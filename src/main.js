@@ -1,16 +1,18 @@
-import Vue from 'vue'
-import ElementUI from 'element-ui'
-import VueRouter from 'vue-router'
-import VueResource from 'vue-resource'
-import tween from 'tween.js'
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
+import tween from 'tween.js';
 // import jquery from 'jquery'
 //样式  异步加载
-System.import('animate.css/fade.css')
-System.import('element-ui/lib/theme-default/index.css')
+import 'animate.css/animate.css';
+import 'element-ui/lib/theme-default/index.css';
+// System.import('animate.css/animate.css')
+// System.import('element-ui/lib/theme-default/index.css')
 
 
 // 主模块
-import App from './App.vue'
+import App from './App.vue';
 //表格模块
 // import highcharts from 'highcharts'
 // ECharts = require('vue-echarts/components/ECharts.vue')

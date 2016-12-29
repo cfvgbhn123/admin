@@ -1,6 +1,6 @@
 <template>
 <div>
-    <p  >{{Bdata}}</p>
+    <p  >{{message}}</p>
     <input type="number" v-model="Adata[0][1]"step="22">
     <input type="number" v-model="Adata[1][1]"step="22">
     <input type="number" v-model="Adata[2][1]"step="22">
@@ -33,6 +33,7 @@
                 Bdata: '测试',
             }
         },
+        props: ['message'],
         methods: {
             change() {
                 // this.Adata[0][1] = this.Adata[0][1] + 1000;

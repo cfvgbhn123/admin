@@ -74,13 +74,13 @@
     <el-menu-item index="/home/PayWay">付费习惯</el-menu-item>
 </el-submenu>
 </el-menu>-->
-<el-tree :data="data" :props="defaultProps" @node-click="handleNodeClick"></el-tree>
+<el-tree :data="data" @node-click="handleNodeClick"></el-tree>
 
 
 </div>
 <div class="rightcontent">
     <transition enter-active-class="animated quick fadeIn" leave-active-class="animated quick fadeOut" mode="out-in">
-        <router-view></router-view>
+        <router-view :message=message></router-view>
     </transition>
 
 </div>
@@ -127,6 +127,7 @@
         },
         data() {
             return {
+                message: 'props ok',
                 data: [{
                     label: '游戏玩家',
                     children: [{
